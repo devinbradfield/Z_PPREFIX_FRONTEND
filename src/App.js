@@ -9,7 +9,7 @@ import Mypage from "./views/Mypage";
 
 function App() {
   //Constants
-  const BASE_URL = "https://facespace1.herokuapp.com/";
+  const BASE_URL = "https://facespace1.herokuapp.com";
   //states
   const [userToken, setUserToken] = useState();
   const [allPosts, setAllPosts] = useState([]);
