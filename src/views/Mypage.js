@@ -9,6 +9,7 @@ import { Button } from "@material-ui/core";
 import Modal from "@mui/material/Modal";
 import { useNavigate,  } from "react-router-dom";
 
+
 export default function Mypage({post}) {
   let { newPost, userToken, allPosts } = useContext(AppContext);
   

@@ -9,7 +9,7 @@ import Mypage from "./views/Mypage";
 
 function App() {
   //Constants
-  const BASE_URL = "http://localhost:8080";
+  const BASE_URL = "https://facespace1.herokuapp.com/";
   //states
   const [userToken, setUserToken] = useState();
   const [allPosts, setAllPosts] = useState([]);
@@ -19,7 +19,7 @@ function App() {
   const [state, setState] = useState(false);
   
   console.log(userToken)
-  
+
   useEffect(() => {
     fetch(`${BASE_URL}/posts`)
       .then((response) => response.json())
