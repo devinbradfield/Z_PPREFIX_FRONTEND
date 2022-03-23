@@ -16,9 +16,6 @@ export default function Loginpage({ setToken }) {
 
   let navigate = useNavigate();
 
-
-  
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const token = await logon({

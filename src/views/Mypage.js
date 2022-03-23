@@ -23,7 +23,8 @@ export default function Mypage({post}) {
   const [open, setOpen] = useState(false);
   const [title, setTitle] = useState();
   const [content, setContent] = useState();
-  
+  const [username, setUserName] = useState(userToken)
+
 console.log(title)
 console.log(content)
   const handleOpen = () => {
@@ -53,6 +54,10 @@ console.log(content)
       title,
       content
     });
+    setTimeout(function () {
+      return navigate("/landing");
+    }, 1500);
+    
     console.log("inside submit",userid)
   
     };
@@ -60,7 +65,7 @@ console.log(content)
   return (
     <Grid>
       <ButtonAppBarUser />
-      <Button size="small" onClick={handleOpen}>
+      <Button size="small" onClick={handleOpen}  >
         Add Post
       </Button>
 
