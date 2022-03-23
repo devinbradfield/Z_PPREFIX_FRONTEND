@@ -7,7 +7,6 @@ import Loginpage from "./views/Loginpage";
 import Signuppage from "./views/Signuppage";
 import Mypage from "./views/Mypage";
 
-
 function App() {
   //Constants
   const BASE_URL = "http://localhost:8080";
@@ -20,6 +19,7 @@ function App() {
   const [state, setState] = useState(false);
   
   console.log(userToken)
+  
   useEffect(() => {
     fetch(`${BASE_URL}/posts`)
       .then((response) => response.json())
@@ -66,9 +66,9 @@ function App() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(updatePost),
+        body: JSON.stringify({updatePost}),
+       
       })
-
       .then(response => response.json())
       .then(data => console.log(data))
       .catch(err => console.log(err))
