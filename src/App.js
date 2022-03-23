@@ -18,7 +18,7 @@ function App() {
   const [postInfo, setPostInfo] = useState([]);
   const [state, setState] = useState(false);
   
-  console.log(userToken)
+ 
 
   useEffect(() => {
     fetch(`${BASE_URL}/posts`)
@@ -28,7 +28,7 @@ function App() {
   }, []);
 
   function logon(credentials) {
-    console.log("login credentials", credentials);
+    
     fetch(`${BASE_URL}/users/login`, {
       method: "POST",
       headers: {
@@ -42,8 +42,7 @@ function App() {
   }
 
   function signup(credentials) {
-    console.log("credentials", credentials);
-
+   
     fetch(`${BASE_URL}/users/signup`, {
       method: "POST",
       headers: {
@@ -57,7 +56,7 @@ function App() {
   }
 
    function updatePost(updatePost) {
-    console.log('post',updatePost)
+    
     
     // let body = JSON.stringify( updatePost )
     // console.log(body)
@@ -74,8 +73,7 @@ function App() {
       .catch(err => console.log(err))
   }
   function newPost(post) {
-    console.log("post", post);
-    fetch(`${BASE_URL}/posts`, {
+       fetch(`${BASE_URL}/posts`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -87,7 +85,7 @@ function App() {
   }
 
   function deletePost(post) {  
-    console.log("yes",post);
+    
     fetch(`${BASE_URL}/posts/${post}`, {
       method: "DELETE",
     })
