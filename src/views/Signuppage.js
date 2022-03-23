@@ -14,7 +14,7 @@ export default function Signuppage({ setToken }) {
   const [password, setPassword] = useState();
   const [open, setOpen] = useState(false);
 
-  let { signup, postState } = useContext(AppContext);
+  let { signup } = useContext(AppContext);
   let navigate = useNavigate();
 
     const handleSubmit = async (e) => {
