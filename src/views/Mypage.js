@@ -2,7 +2,7 @@ import * as React from "react";
 import ColumnGridUser from "../components/ColumnGridUser.js";
 import ButtonAppBarUser from "../components/ButtonAppBarUser.js";
 import AppContext from "../context/Appcontext.js";
-import { useContext, useState} from "react";
+import { useContext, useState, useEffect} from "react";
 import Grid from "@mui/material/Grid";
 import { TextField,Box } from "@mui/material";
 import { Button } from "@material-ui/core";
@@ -15,7 +15,11 @@ export default function Mypage({post}) {
   
   let navigate = useNavigate();
 
+  useEffect(() => {
+    
+  }, [userToken]);
 
+console.log(userToken)
   let id = userToken[0]
   let userid = id.id
   console.log(userToken)
@@ -23,11 +27,8 @@ export default function Mypage({post}) {
   const [open, setOpen] = useState(false);
   const [title, setTitle] = useState();
   const [content, setContent] = useState();
-  const [username, setUserName] = useState(userToken)
 
-console.log(title)
-console.log(content)
-  const handleOpen = () => {
+   const handleOpen = () => {
     setOpen(true);
   };
   const handleClose = () => {
@@ -54,12 +55,9 @@ console.log(content)
       title,
       content
     });
-    setTimeout(function () {
-      return navigate("/landing");
-    }, 1500);
-    
+      
     console.log("inside submit",userid)
-  
+    
     };
 
   return (

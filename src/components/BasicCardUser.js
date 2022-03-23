@@ -11,7 +11,7 @@ import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import { TextField } from "@mui/material";
 export default function BasicCardUser(item) {
-  let { updatePost } = useContext(AppContext);
+  let { updatePost, deletePost } = useContext(AppContext);
   let post = item.item;
 
   const [content, setContent] = useState(post.content);
@@ -41,6 +41,14 @@ console.log(text)
     px: 4,
     pb: 3,
   };
+  const handleSubmit1  = async (e) => {
+    e.preventDefault();
+    const post = await deletePost({
+      id,
+    });
+    console.log("inside delete submit", id);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const post = await updatePost({
@@ -70,7 +78,7 @@ console.log(text)
         <CardActions>
           <Button onClick={handleOpen}>Edit/View</Button>
 
-          <Button onClick={handleSubmit}>Delete</Button>
+          <Button onClick={handleSubmit1}>Delete</Button>
 
           <Modal
             open={open}

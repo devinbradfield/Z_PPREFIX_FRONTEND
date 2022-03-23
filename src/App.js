@@ -21,10 +21,12 @@ function App() {
  
 
   useEffect(() => {
+    
     fetch(`${BASE_URL}/posts`)
       .then((response) => response.json())
       .then((data) => setAllPosts(data))
       .catch((err) => console.log(err));
+    
   }, []);
 
   function logon(credentials) {
@@ -53,19 +55,28 @@ function App() {
       .then((token) => token.json())
       .then((data) => console.log(data))
       .catch((err) => console.log(err));
+
+     
+  }
+
+  function getLatestInfo() {
+
+    fetch(`${BASE_URL}/posts`)
+      .then(response => response.json())
+      .then(post => setAllPosts(post))
+      .catch(err => console.log(err))
   }
 
    function updatePost(updatePost) {
-    
-    
-    // let body = JSON.stringify( updatePost )
-    // console.log(body)
+        
+    let body = JSON.stringify({updatePost})
+    console.log("the body",body)
       return fetch(`${BASE_URL}/posts/${updatePost.id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({updatePost}),
+        body ,
        
       })
       .then(response => response.json())
@@ -81,16 +92,18 @@ function App() {
       body: JSON.stringify(post),
     })
       .then((response) => response.json())
+      .then((data) => getLatestInfo(data))
       .catch((err) => console.log(err));
   }
 
   function deletePost(post) {  
-    
-    fetch(`${BASE_URL}/posts/${post}`, {
+    console.log("inside post",post)
+    fetch(`${BASE_URL}/posts/${post.id}`, {
       method: "DELETE",
     })
       .then((response) => response.json())
       .then((data) => console.log(data))
+      .then((data) => getLatestInfo(data))
       .catch((err) => console.log(err));
   }
 

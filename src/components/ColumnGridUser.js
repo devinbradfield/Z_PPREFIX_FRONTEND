@@ -6,7 +6,7 @@ import Grid from "@mui/material/Grid";
 import BasicCardUser from "./BasicCardUser";
 
 import AppContext from "../context/Appcontext.js";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -18,12 +18,18 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 
+
 export default function ColumnGridUser() {
 
   let { allPosts,  userToken,  } = useContext(AppContext);
-  console.log("User Token",userToken[0]);
+  // console.log("User Token",userToken[0]);
   console.log("All Post",allPosts)
 
+  useEffect(() => {
+    
+  }, [userToken]);
+  
+  console.log("User Token",userToken);
 let postid = userToken[0]
 
 let userPost = allPosts.filter(data => data.userid === postid.id)
