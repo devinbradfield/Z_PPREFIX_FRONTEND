@@ -3,7 +3,7 @@ import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
-import BasicCard from "./BasicCard";
+import BasicCardUser from "./BasicCardUser";
 import Button from "@mui/material/Button";
 import AppContext from "../context/Appcontext.js";
 import { useContext } from "react";
@@ -17,17 +17,25 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-export default function ColumnGrid() {
-  let { allPosts } = useContext(AppContext);
-  console.log(allPosts);
 
-  return (
-  <Grid container spacing={0} direction="column" alignItems="center" justify="center" style={{ minHeight: "100vh" }}>
-    <Box >
-      {Array.from(allPosts).map((post, index) => (
+export default function ColumnGridUser() {
+
+  let { allPosts,  userToken,  } = useContext(AppContext);
+  // console.log("User Token",userToken[0]);
+  // console.log("All Post",allPosts)
+
+let postid = userToken[0]
+
+let userPost = allPosts.filter(data => data.userid === postid.id)
+// console.log("postid", postid)
+// console.log("User Post",userPost) 
+    return (
+    <Grid container spacing={0} direction="column" alignItems="center" justify="center" style={{ minHeight: "100vh" }}>
+    <Box direction="column" alignItems="center" justify="center" sx={{ flexGrow: "down" }}>
+      {Array.from(userPost).map((data, index) => (
         <Grid item xs={12} sm={1} md={12} key={index}>
           <Item>
-            <BasicCard direction="column" alignItems="center" justify="center" key={post.title} item={post} />
+            <BasicCardUser  key={data.title} item={data} />
           </Item>
         </Grid>
       ))}

@@ -1,12 +1,92 @@
 import * as React from "react";
-import ColumnGrid from "../components/ColumnGrid.js";
-import ButtonAppBar from "../components/ButtonAppBar.js";
+import ColumnGridUser from "../components/ColumnGridUser.js";
+import ButtonAppBarUser from "../components/ButtonAppBarUser.js";
+import AppContext from "../context/Appcontext.js";
+import { useContext, useState, useEffect } from "react";
+import Grid from "@mui/material/Grid";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardActions from "@mui/material/CardActions";
+import { TextField, Typography, Box } from "@mui/material";
+import { Button } from "@material-ui/core";
+import Modal from "@mui/material/Modal";
+import { useNavigate, Link } from "react-router-dom";
 
-export default function Mypage() {
+export default function Mypage({post}) {
+  let { newPost, userToken, allPosts } = useContext(AppContext);
+  let navigate = useNavigate();
+
+
+  let id = userToken[0]
+  let userid = id.id
+  console.log(userToken)
+  console.log(userid)
+  const [open, setOpen] = useState(false);
+  const [title, setTitle] = useState();
+  const [content, setContent] = useState();
+  
+console.log(title)
+console.log(content)
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 600,
+    bgcolor: "background.paper",
+    border: "2px solid #000",
+    boxShadow: 24,
+    pt: 2,
+    px: 4,
+    pb: 3,
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const post = await newPost({
+      userid,
+      title,
+      content
+    });
+    console.log("inside submit",userid)
+  
+    };
+
   return (
-    <>
-      <ButtonAppBar />
-      <ColumnGrid />
-    </>
+    <Grid>
+      <ButtonAppBarUser />
+      <Button size="small" onClick={handleOpen}>
+        Add Post
+      </Button>
+
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+        <form >
+        <div>
+          <h1>
+            <TextField justify="center" label="Title" onChange={(e) => setTitle(e.target.value)}> </TextField>
+          </h1>
+              <textarea style={{  minHeight: 200 }} onChange={(e) => setContent(e.target.value)}> </textarea>
+          </div>
+          </form>
+          <Button type="submit" onClick={handleSubmit}>
+            Submit
+          </Button>
+        </Box>
+      </Modal>
+
+      <ColumnGridUser />
+    </Grid>
   );
 }

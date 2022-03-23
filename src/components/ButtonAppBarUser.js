@@ -20,8 +20,8 @@ export default function ButtonAppBar() {
             MyFace
           </Typography>
           {/* <Link to="/login"> */}
-          <Button color="inherit" href="/login">
-            Login
+          <Button color="inherit" href="/landing">
+            Logout
           </Button>
         </Toolbar>
       </AppBar>
