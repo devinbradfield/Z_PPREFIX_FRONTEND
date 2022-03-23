@@ -7,6 +7,7 @@ import Loginpage from "./views/Loginpage";
 import Signuppage from "./views/Signuppage";
 import Mypage from "./views/Mypage";
 
+
 function App() {
   //Constants
   const BASE_URL = "https://facespace1.herokuapp.com";
@@ -18,8 +19,12 @@ function App() {
   const [postInfo, setPostInfo] = useState([]);
   const [state, setState] = useState(false);
   
+<<<<<<< HEAD
  
 
+=======
+  console.log(userToken)
+>>>>>>> parent of 70e27f4 (day3)
   useEffect(() => {
     
     fetch(`${BASE_URL}/posts`)
@@ -76,9 +81,14 @@ function App() {
         headers: {
           "Content-Type": "application/json",
         },
+<<<<<<< HEAD
         body ,
        
+=======
+        body: JSON.stringify(updatePost),
+>>>>>>> parent of 70e27f4 (day3)
       })
+
       .then(response => response.json())
       .then(data => console.log(data))
       .catch(err => console.log(err))

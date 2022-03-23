@@ -99,7 +99,7 @@ console.log(text)
                     </TextField>
                   </h1>
                   <textarea
-                    style={{ height:'186px', width:'330px' }}
+                    style={{ minHeight: 200, minWidth: 200 }}
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
                   >

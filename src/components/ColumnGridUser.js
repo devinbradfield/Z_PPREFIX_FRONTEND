@@ -23,7 +23,11 @@ export default function ColumnGridUser() {
 
   let { allPosts,  userToken,  } = useContext(AppContext);
   // console.log("User Token",userToken[0]);
+<<<<<<< HEAD
   console.log("All Post",allPosts)
+=======
+  // console.log("All Post",allPosts)
+>>>>>>> parent of 70e27f4 (day3)
 
   useEffect(() => {
     
@@ -33,8 +37,8 @@ export default function ColumnGridUser() {
 let postid = userToken[0]
 
 let userPost = allPosts.filter(data => data.userid === postid.id)
-console.log("postid", postid)
-console.log("User Post",userPost) 
+// console.log("postid", postid)
+// console.log("User Post",userPost) 
     return (
     <Grid container spacing={0} direction="column" alignItems="center" justify="center" style={{ minHeight: "100vh" }}>
     <Box direction="column" alignItems="center" justify="center" sx={{ flexGrow: "down" }}>

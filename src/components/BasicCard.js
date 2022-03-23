@@ -44,12 +44,9 @@ export default function BasicCard(item) {
              <div>
             <Typography variant= "h4" ></Typography>
               {post.title}
-            <Typography variant="h6" color="text.secondary" noWrap="true">
+            <Typography variant="body2" color="text.secondary" noWrap="true">
               {post.content}
             </Typography>
-            <Typography variant="h8" component="div">
-            Posted at {post.created_at} UTC
-          </Typography>
           </div>
                 <CardActions>
           {" "}
