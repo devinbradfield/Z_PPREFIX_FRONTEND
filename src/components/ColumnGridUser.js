@@ -23,11 +23,7 @@ export default function ColumnGridUser() {
 
   let { allPosts,  userToken,  } = useContext(AppContext);
   // console.log("User Token",userToken[0]);
-<<<<<<< HEAD
   console.log("All Post",allPosts)
-=======
-  // console.log("All Post",allPosts)
->>>>>>> parent of 70e27f4 (day3)
 
   useEffect(() => {
     

@@ -19,12 +19,8 @@ function App() {
   const [postInfo, setPostInfo] = useState([]);
   const [state, setState] = useState(false);
   
-<<<<<<< HEAD
  
 
-=======
-  console.log(userToken)
->>>>>>> parent of 70e27f4 (day3)
   useEffect(() => {
     
     fetch(`${BASE_URL}/posts`)
