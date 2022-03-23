@@ -2,18 +2,16 @@ import * as React from "react";
 import ColumnGridUser from "../components/ColumnGridUser.js";
 import ButtonAppBarUser from "../components/ButtonAppBarUser.js";
 import AppContext from "../context/Appcontext.js";
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState} from "react";
 import Grid from "@mui/material/Grid";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import { TextField, Typography, Box } from "@mui/material";
+import { TextField,Box } from "@mui/material";
 import { Button } from "@material-ui/core";
 import Modal from "@mui/material/Modal";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate,  } from "react-router-dom";
 
 export default function Mypage({post}) {
   let { newPost, userToken, allPosts } = useContext(AppContext);
+  
   let navigate = useNavigate();
 
 

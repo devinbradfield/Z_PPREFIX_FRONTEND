@@ -11,7 +11,7 @@ import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import { TextField } from "@mui/material";
 export default function BasicCardUser(item) {
-  let { updatePost, deletePost, userToken } = useContext(AppContext);
+  let { updatePost } = useContext(AppContext);
   let post = item.item;
 
   const [content, setContent] = useState(post.content);
