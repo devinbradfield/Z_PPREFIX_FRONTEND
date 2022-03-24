@@ -55,15 +55,15 @@ console.log(userToken)
       title,
       content
     });
-      
+    handleClose(setOpen(true))
     console.log("inside submit",userid)
     
     };
 
   return (
-    <Grid>
+    <Grid >
       <ButtonAppBarUser />
-      <Button size="small" onClick={handleOpen}  >
+      <Button variant="contained" color="success" onClick={handleOpen}  >
         Add Post
       </Button>
 

@@ -23,7 +23,7 @@ function App() {
 
   useEffect(() => {
     
-    fetch(`${BASE_URL}/posts`)
+    fetch(`${BASE_URL}/posts`, {mode:"cors"})
       .then((response) => response.json())
       .then((data) => setAllPosts(data))
       .catch((err) => console.log(err));
@@ -34,6 +34,7 @@ function App() {
     
     fetch(`${BASE_URL}/users/login`, {
       method: "POST",
+      mode: "cors",
       headers: {
         "Content-Type": "application/json",
       },
@@ -48,6 +49,7 @@ function App() {
    
     fetch(`${BASE_URL}/users/signup`, {
       method: "POST",
+      mode: "cors",
       headers: {
         "Content-Type": "application/json",
       },
@@ -74,24 +76,22 @@ function App() {
     console.log("the body",body)
       return fetch(`${BASE_URL}/posts/${updatePost.id}`, {
         method: "PATCH",
+        mode: "cors",
         headers: {
           "Content-Type": "application/json",
         },
-<<<<<<< HEAD
         body ,
        
-=======
-        body: JSON.stringify(updatePost),
->>>>>>> parent of 70e27f4 (day3)
       })
 
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then((data) => getLatestInfo(data))
       .catch(err => console.log(err))
   }
   function newPost(post) {
        fetch(`${BASE_URL}/posts`, {
       method: "POST",
+      mode: "cors",
       headers: {
         "Content-Type": "application/json",
       },
@@ -106,6 +106,7 @@ function App() {
     console.log("inside post",post)
     fetch(`${BASE_URL}/posts/${post.id}`, {
       method: "DELETE",
+      mode: "cors",
     })
       .then((response) => response.json())
       .then((data) => console.log(data))

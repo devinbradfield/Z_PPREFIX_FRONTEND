@@ -46,6 +46,7 @@ console.log(text)
     const post = await deletePost({
       id,
     });
+    handleClose(setOpen(true))
     console.log("inside delete submit", id);
   };
 
@@ -56,11 +57,12 @@ console.log(text)
       title,
       content,
     });
+    handleClose(setOpen(true))
     console.log("inside submit", content);
   };
 
   return (
-    <Card sx={{ maxWidth: 850 }}>
+    <Card sx={{ width: 850 }}>
       <CardContent>
         <div>
           <Typography gutterBottom variant="h4" component="div">
