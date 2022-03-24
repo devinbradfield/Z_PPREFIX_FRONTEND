@@ -48,7 +48,7 @@ export default function BasicCard(item) {
               {post.content}
             </Typography>
             <Typography variant="h8" component="div">
-            Posted at {post.created_at} UTC
+            Posted at {post.created_at.substring(0,10)}
           </Typography>
           </div>
                 <CardActions>

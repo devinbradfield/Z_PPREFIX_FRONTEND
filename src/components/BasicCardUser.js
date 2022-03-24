@@ -73,7 +73,7 @@ console.log(text)
             {post.content}
           </Typography>
           <Typography variant="h8" component="div">
-            Posted at {post.created_at} UTC
+          Posted at {post.created_at.substring(0,10)}
           </Typography>
         </div>
 
